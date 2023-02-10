@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		997AC9A329954D9D007CDBE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9A229954D9D007CDBE6 /* AppDelegate.swift */; };
 		997AC9A529954D9D007CDBE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9A429954D9D007CDBE6 /* SceneDelegate.swift */; };
-		997AC9A729954D9D007CDBE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9A629954D9D007CDBE6 /* ViewController.swift */; };
-		997AC9AA29954D9D007CDBE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 997AC9A829954D9D007CDBE6 /* Main.storyboard */; };
 		997AC9AC29954D9F007CDBE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 997AC9AB29954D9F007CDBE6 /* Assets.xcassets */; };
 		997AC9AF29954D9F007CDBE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 997AC9AD29954D9F007CDBE6 /* LaunchScreen.storyboard */; };
+		997AC9B729954DD6007CDBE6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9B629954DD6007CDBE6 /* Song.swift */; };
+		997AC9BC29954E26007CDBE6 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9BB29954E26007CDBE6 /* PlayerView.swift */; };
+		997AC9BE29954E4A007CDBE6 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9BD29954E4A007CDBE6 /* Presenter.swift */; };
+		997AC9C029954E69007CDBE6 /* SongsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9BF29954E69007CDBE6 /* SongsView.swift */; };
+		997AC9C429955F41007CDBE6 /* Jocelyn Flores.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 997AC9C229955F41007CDBE6 /* Jocelyn Flores.mp3 */; };
+		997AC9C529955F41007CDBE6 /* Middle Of The Night.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 997AC9C329955F41007CDBE6 /* Middle Of The Night.mp3 */; };
+		997AC9C72995666E007CDBE6 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9C62995666E007CDBE6 /* CircleProgressView.swift */; };
+		997AC9CA299566BB007CDBE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AC9C9299566BB007CDBE6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		997AC99F29954D9D007CDBE6 /* Delphin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delphin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		997AC9A229954D9D007CDBE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		997AC9A429954D9D007CDBE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		997AC9A629954D9D007CDBE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		997AC9A929954D9D007CDBE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		997AC9AB29954D9F007CDBE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		997AC9AE29954D9F007CDBE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		997AC9B029954D9F007CDBE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		997AC9B629954DD6007CDBE6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		997AC9BB29954E26007CDBE6 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		997AC9BD29954E4A007CDBE6 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		997AC9BF29954E69007CDBE6 /* SongsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsView.swift; sourceTree = "<group>"; };
+		997AC9C229955F41007CDBE6 /* Jocelyn Flores.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jocelyn Flores.mp3"; sourceTree = "<group>"; };
+		997AC9C329955F41007CDBE6 /* Middle Of The Night.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Middle Of The Night.mp3"; sourceTree = "<group>"; };
+		997AC9C62995666E007CDBE6 /* CircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
+		997AC9C9299566BB007CDBE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,61 @@
 		997AC9A129954D9D007CDBE6 /* Delphin */ = {
 			isa = PBXGroup;
 			children = (
-				997AC9A229954D9D007CDBE6 /* AppDelegate.swift */,
-				997AC9A429954D9D007CDBE6 /* SceneDelegate.swift */,
-				997AC9A629954D9D007CDBE6 /* ViewController.swift */,
-				997AC9A829954D9D007CDBE6 /* Main.storyboard */,
-				997AC9AB29954D9F007CDBE6 /* Assets.xcassets */,
-				997AC9AD29954D9F007CDBE6 /* LaunchScreen.storyboard */,
+				997AC9C129955710007CDBE6 /* App */,
+				997AC9B829954DEF007CDBE6 /* Model */,
+				997AC9B929954DF7007CDBE6 /* Views */,
+				997AC9BA29954DFD007CDBE6 /* Presenters */,
+				997AC9C82995669F007CDBE6 /* Supporting Files */,
 				997AC9B029954D9F007CDBE6 /* Info.plist */,
 			);
 			path = Delphin;
+			sourceTree = "<group>";
+		};
+		997AC9B829954DEF007CDBE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				997AC9B629954DD6007CDBE6 /* Song.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		997AC9B929954DF7007CDBE6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				997AC9BB29954E26007CDBE6 /* PlayerView.swift */,
+				997AC9BF29954E69007CDBE6 /* SongsView.swift */,
+				997AC9C62995666E007CDBE6 /* CircleProgressView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		997AC9BA29954DFD007CDBE6 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				997AC9BD29954E4A007CDBE6 /* Presenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		997AC9C129955710007CDBE6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				997AC9A229954D9D007CDBE6 /* AppDelegate.swift */,
+				997AC9A429954D9D007CDBE6 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		997AC9C82995669F007CDBE6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				997AC9AB29954D9F007CDBE6 /* Assets.xcassets */,
+				997AC9AD29954D9F007CDBE6 /* LaunchScreen.storyboard */,
+				997AC9C229955F41007CDBE6 /* Jocelyn Flores.mp3 */,
+				997AC9C329955F41007CDBE6 /* Middle Of The Night.mp3 */,
+				997AC9C9299566BB007CDBE6 /* Constants.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +183,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				997AC9C529955F41007CDBE6 /* Middle Of The Night.mp3 in Resources */,
+				997AC9C429955F41007CDBE6 /* Jocelyn Flores.mp3 in Resources */,
 				997AC9AF29954D9F007CDBE6 /* LaunchScreen.storyboard in Resources */,
 				997AC9AC29954D9F007CDBE6 /* Assets.xcassets in Resources */,
-				997AC9AA29954D9D007CDBE6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +197,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				997AC9A729954D9D007CDBE6 /* ViewController.swift in Sources */,
+				997AC9B729954DD6007CDBE6 /* Song.swift in Sources */,
+				997AC9C029954E69007CDBE6 /* SongsView.swift in Sources */,
 				997AC9A329954D9D007CDBE6 /* AppDelegate.swift in Sources */,
+				997AC9C72995666E007CDBE6 /* CircleProgressView.swift in Sources */,
 				997AC9A529954D9D007CDBE6 /* SceneDelegate.swift in Sources */,
+				997AC9BC29954E26007CDBE6 /* PlayerView.swift in Sources */,
+				997AC9BE29954E4A007CDBE6 /* Presenter.swift in Sources */,
+				997AC9CA299566BB007CDBE6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		997AC9A829954D9D007CDBE6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				997AC9A929954D9D007CDBE6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		997AC9AD29954D9F007CDBE6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +348,9 @@
 				INFOPLIST_FILE = Delphin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +376,9 @@
 				INFOPLIST_FILE = Delphin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
