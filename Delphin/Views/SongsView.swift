@@ -8,7 +8,6 @@
 import UIKit
 
 class SongsView: UITableViewController {
-    fileprivate let presenter = Presenter()
     fileprivate var songs = Song.mockSongs
 
     override func viewDidLoad() {
@@ -41,9 +40,7 @@ class SongsView: UITableViewController {
         let playerView = PlayerView()
         let this = indexPath.row
         
-        presenter.startPlaying(idx: this)
-        
-        present(playerView, animated: true)
+        playerView.setPosition(this)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

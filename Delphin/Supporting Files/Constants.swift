@@ -26,7 +26,7 @@ struct K {
         static let centerConfig = UIImage.SymbolConfiguration(pointSize: 80)
         static let sideConfig = UIImage.SymbolConfiguration(pointSize: 50)
         static let play = "play.circle.fill"
-        static let pause = "pause.circle.fill"
+        static let stop = "stop.circle.fill"
         static let next = "forward.end.circle.fill"
         static let prev = "backward.end.circle.fill"
         static let mainSliderColour = UIColor.systemPink

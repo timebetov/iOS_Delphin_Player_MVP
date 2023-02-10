@@ -72,18 +72,33 @@ class CircleProgressView: UIView {
     }
 }
 
-// Rotate Animation
+// Rotate Animation method
+enum ImgGo {
+    case go, pause, stop, start
+}
+
 extension UIImageView{
-    func rotate(_ active: Bool) {
-        if active {
+    func rotate(_ state: ImgGo) {
+        switch state {
+        case .start:
             let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
             rotation.toValue = NSNumber(value: Double.pi * 2)
             rotation.duration = 25
             rotation.isCumulative = true
             rotation.repeatCount = Float.greatestFiniteMagnitude
             self.layer.add(rotation, forKey: "rotationAnimation")
-        } else {
-            self.layer.removeAllAnimations()
+        case .pause:
+            let pausedTime : CFTimeInterval = self.layer.convertTime(CACurrentMediaTime(), from: nil)
+            self.layer.speed = 0.0
+            self.layer.timeOffset = pausedTime
+        case .go:
+            let pausedTime = self.layer.timeOffset
+            self.layer.speed = 1.0
+            self.layer.timeOffset = 0.0
+            self.layer.beginTime = 0.0
+            let timeSincePause = self.layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+            self.layer.beginTime = timeSincePause
+        case .stop: self.layer.removeAllAnimations()
         }
     }
     
