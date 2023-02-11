@@ -1,6 +1,6 @@
 # Delphin - Simple iOS Music Player application
 
-## I used MVP pattern...
+## I used MVP pattern... Moreover all the UI part made with CODE no Storyboard!
 > Firstly, If you want to test my app, go ahead to /model/Song.swift and add your songs to "mockSongs" array.
 > Secondly, go on to folder /Supporting Files/ and paste here your song files and your images of album to show in the centre of screen into /Assets.xcassets...
 
