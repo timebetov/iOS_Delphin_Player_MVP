@@ -8,14 +8,13 @@
 import UIKit
 
 class SongsView: UITableViewController {
-    fileprivate var songs = Song.mockSongs
+    fileprivate var songs: [Song]? = Song.mockSongs
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // delegation signing
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: K.Songs.cell)
         view.backgroundColor = .systemBackground
-        title = K.Songs.title
     }
     
     // MARK: - Table view data source and delegate
@@ -24,23 +23,20 @@ class SongsView: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
+        return songs?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Songs.cell, for: indexPath)
         var context = cell.defaultContentConfiguration()
-        context.text = songs[indexPath.row].title
+        context.text = songs?[indexPath.row].title ?? "There no one tracks!"
         cell.contentConfiguration = context
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let playerView = PlayerView()
-        let this = indexPath.row
-        
-        playerView.setPosition(this)
+        dismiss(animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

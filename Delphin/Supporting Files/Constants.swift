@@ -20,8 +20,6 @@ struct K {
     struct Favourites {
     }
     struct Player {
-        static let songName = "Jocelyn Flores"
-        static let songAuthor = "XXXTentacion"
         // configurations for SF Symbols
         static let centerConfig = UIImage.SymbolConfiguration(pointSize: 80)
         static let sideConfig = UIImage.SymbolConfiguration(pointSize: 50)

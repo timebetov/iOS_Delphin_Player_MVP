@@ -29,7 +29,6 @@ class PlayerPresenter {
     public func startPlaying(idx: Int)  { self.position = idx }         // use to start playing
     public func stopPlaying()           { self.audioState = .stopped }  // use to stop playing
     public func pausePlaying()  { self.isPaused.toggle() }              // use to pause playing
-    public func getCurrentState() -> AudioState { return self.stateToSend }
     public func stateBtn(_ tag: Int) {
         switch tag {
         case 0: audioState = .playing
@@ -45,7 +44,6 @@ class PlayerPresenter {
     private var timerProgress: CGFloat = 0          // progress of song
     private var timerDuration = 0.0                 // duration of song
     private var player: AVAudioPlayer? = nil        // reference to AVAudioPlayer
-    private var stateToSend: AudioState = .paused   // passing current state
     private var currentPosition: Int = -1           // current playing song index
     private var position: Int = 0 {                 // new song index to play or pause
         didSet { checkAndPlay(idx: position) }
@@ -58,7 +56,6 @@ class PlayerPresenter {
     private var audioState: AudioState = .blank {
         didSet {
             if audioState == .playing {
-                stateToSend = audioState            // setting state to passing to PlayerView
                 currentPosition = position          // sets current song index up to new one
                 timerProgress = 0.0
                 startSong()                          // starting playing the song
@@ -67,7 +64,6 @@ class PlayerPresenter {
                 let song = songs[currentPosition]
                 delegate?.playingStarted(song.title, song.author)
             } else if audioState == .stopped {
-                stateToSend = audioState
                 currentPosition = -1                // if given index of song is equal to current then we change it
                 player?.stop()                      // stop playing the song
                 stopTimer()
@@ -97,12 +93,12 @@ class PlayerPresenter {
     }
     
     // main method to start playing the song
-    public func startSong() {
+    private func startSong() {
         guard let url = Bundle.main.url(forResource: songs[currentPosition].title, withExtension: "mp3")
         else { return }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setCategory(.playback)
             try AVAudioSession.sharedInstance().setActive(true)
             
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
@@ -134,7 +130,7 @@ class PlayerPresenter {
     }
     
     // Progress Bar methods
-    func configure(with duration: Double, progress: Double) {
+    private func configure(with duration: Double, progress: Double) {
         timerDuration = duration
         
         let tempCurrentValue = progress > duration ? duration : progress
@@ -144,7 +140,7 @@ class PlayerPresenter {
         
         delegate?.drawSlider(percent: percent)
     }
-    func startTimer() {
+    private func startTimer() {
         timer.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { [weak self] timer in
@@ -160,10 +156,10 @@ class PlayerPresenter {
             self.configure(with: self.timerDuration, progress: self.timerProgress)
         })
     }
-    func pauseTimer() {
+    private func pauseTimer() {
         timer.invalidate()
     }
-    func stopTimer() {
+    private func stopTimer() {
         guard self.timerProgress > 0 else { return }
         timer.invalidate()
         

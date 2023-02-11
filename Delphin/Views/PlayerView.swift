@@ -11,12 +11,6 @@ class PlayerView: UIViewController {
     // REFERENCES to use
     fileprivate let presenter = PlayerPresenter()
     fileprivate let circleProgressView = CircleProgressView()
-    // POSITION of audio
-    fileprivate var position: Int = 0 {
-        didSet { presenter.startPlaying(idx: position) }
-    }
-    
-    public func setPosition(_ this: Int) { self.position = this }       // setting position
     
         //MARK: - View Did Load
     override func viewDidLoad() {
@@ -26,10 +20,14 @@ class PlayerView: UIViewController {
         presenter.setPresenterDelegate(delegate: self)                  // signing delegate
         circleProgressView.drawProgress(percent: 0.0)                   // draw circle progress with 0.0 percentage done
         
-        let imageTap = UITapGestureRecognizer(
-            target: self,
-            action: #selector(pauseSong(tapGestureRecognizer:)))
+        // Tapping on central image view to pause the song
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(pauseSong))
         centralImgView.addGestureRecognizer(imageTap)
+        
+        // Swiping up to go to Songs View
+        let swipeToLeft = UISwipeGestureRecognizer(target: self, action: #selector(goToList))
+        swipeToLeft.direction = .up
+        view.addGestureRecognizer(swipeToLeft)
         
         // Adding all layers and views with constraints to this one
         // and I know that we can call this methods without self keyword just its more clear and understandable for me
@@ -76,7 +74,6 @@ class PlayerView: UIViewController {
         label.text = "Author"
         return label
     }()
-    
     fileprivate var infoStack: UIStackView = {          // Info stack contains UI Labels and image stack
         let stack = UIStackView()
         stack.axis = .vertical
@@ -88,7 +85,6 @@ class PlayerView: UIViewController {
         stack.isLayoutMarginsRelativeArrangement = true
         return stack
     }()
-    
     fileprivate var centralImgView: UIImageView = {     // Circul image in the view center
         let circleImageView = UIImageView()
         circleImageView.image = UIImage(named: "musImg")
@@ -98,7 +94,6 @@ class PlayerView: UIViewController {
         circleImageView.roundedImage()
         return circleImageView
     }()
-    
     fileprivate var playButton: UIButton = {            // Button to play or pause
         let btn = UIButton()
         btn.tintColor = .systemPink
@@ -126,7 +121,6 @@ class PlayerView: UIViewController {
         btn.tag = 2
         return btn
     }()
-    
     fileprivate var controlStack: UIStackView = {       // Control stack contains three control buttons
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -143,9 +137,11 @@ class PlayerView: UIViewController {
         print("\nSent => \(tag)\n")
         presenter.stateBtn(tag)
     }
-    
-    @objc private func pauseSong(tapGestureRecognizer: UITapGestureRecognizer) {
-//        let tappedImage = tapGestureRecognizer.view as! UIImageView
+    @objc private func goToList(sender: UISwipeGestureRecognizer) {                 // Swipte to up handle
+        let songsView = SongsView()
+        self.present(songsView, animated: true)
+    }
+    @objc private func pauseSong(tapGestureRecognizer: UITapGestureRecognizer) {    // Pause song method
         presenter.pausePlaying()
         print("\n\n\n\t\t\tPAUSE!")
     }
@@ -173,22 +169,22 @@ extension PlayerView: PresenterDelegate {
         centralImgView.isUserInteractionEnabled = true
         print("\nCalled from Delegate: \tstartedPlaying\n\nPlayerView\n")
     }
-    
+    // update view when playing stopped
     func playingStopped() {
         self.isStop()
         centralImgView.isUserInteractionEnabled = false
         print("\nCalled from Delegate: \tstoppedPlaying\n\nPlayerView\n")
     }
-    
+    // update view when player on pause
     func playingPaused() {
         centralImgView.rotate(.pause)
         print("\nCalled from Delegate: \tpausedPlaying\n\nPlayerView\n")
     }
-    
+    // update view when paused song resumed
     func playingContinue() {
         centralImgView.rotate(.go)
     }
-    
+    // updating circle progress view
     func drawSlider(percent: CGFloat) {
         circleProgressView.drawProgress(percent: percent)
     }
@@ -212,7 +208,7 @@ extension PlayerView {
             circleProgressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70)
         ])
     }
-    
+    // Central Image Constraints
     fileprivate func setCentralImageViewConstraints() {
         NSLayoutConstraint.activate([
             centralImgView.topAnchor.constraint(equalTo: view.topAnchor, constant: 225),
@@ -221,7 +217,7 @@ extension PlayerView {
             centralImgView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
-    
+    // Info stack constraints (Top Stack)
     fileprivate func setInfoStackConstraints() {
         NSLayoutConstraint.activate([
             infoStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -229,7 +225,7 @@ extension PlayerView {
             infoStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
         ])
     }
-    
+    // Control stack constraints (Bottom stack)
     fileprivate func setControlStackConstraints() {
         NSLayoutConstraint.activate([
             controlStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
